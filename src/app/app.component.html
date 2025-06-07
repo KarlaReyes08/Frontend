@@ -1,1 +1,22 @@
-<app-listar-usuarios></app-listar-usuarios>
+<div class="min-h-screen flex flex-col bg-gray-100">
+  <header *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">
+    <nav>
+  <a href="/">Inicio</a>
+  <a href="/eventos">Eventos</a>
+  <a href="/nosotros">Nosotros</a>
+  <a href="/contacto">Contacto</a>
+</nav>
+    <app-header></app-header>
+  </header>
+
+  <main class="flex-1 container mx-auto px-4 py-8">
+    <h1 *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">Bienvenidos a Eventos Conexión</h1>
+    <p>Explorá conferencias, conciertos y más eventos increíbles.</p>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">
+    <p>Eventos Conexión. Todos los derechos reservados.</p>
+    <a href="/privacidad">Política de privacidad</a>
+  </footer>
+</div>
