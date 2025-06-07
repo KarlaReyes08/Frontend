@@ -12,7 +12,7 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public router: Router) {}
+   constructor(public router: Router) {}
 
   get isLoginPage(): boolean {
     return this.router.url.startsWith('/inicio-sesion');
