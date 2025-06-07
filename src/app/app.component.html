@@ -1,16 +1,14 @@
 <div class="min-h-screen flex flex-col bg-gray-100">
-  <header>
+  <header *ngIf="!isLoginPage">
     <app-header></app-header>
   </header>
 
   <main class="flex-1 container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6 text-center">Welcome to My Angular App</h1>
-    <app-dashboard></app-dashboard>
-    <!-- Puedes agregar aquí otros componentes, por ejemplo: -->
-    <app-listar-usuarios></app-listar-usuarios> 
+    <h1 *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">Welcome to My Angular App</h1>
+    <router-outlet></router-outlet>
   </main>
 
-  <footer>
+  <footer *ngIf="!isLoginPage">
     <app-footer></app-footer>
   </footer>
 </div>
