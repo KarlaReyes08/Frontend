@@ -1,0 +1,39 @@
+<div class="container mx-auto py-8">
+  <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Próximos Eventos</h2>
+  <div class="space-y-6">
+    <ng-container *ngFor="let evento of eventosPagina">
+      <div class="flex flex-col md:flex-row items-center bg-white rounded-lg shadow p-4">
+        <img [src]="evento.imagen" [alt]="evento.nombre" class="w-32 h-20 object-cover rounded-md mb-4 md:mb-0 md:mr-6">
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-gray-700">{{ evento.nombre }}</h3>
+          <p class="text-gray-600 mb-2">{{ evento.descripcion }}</p>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Reservar</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Paginación -->
+  <div class="flex justify-center mt-8 space-x-2">
+    <button
+      class="px-3 py-1 rounded bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+      [disabled]="paginaActual === 1"
+      (click)="cambiarPagina(paginaActual - 1)">
+      Anterior
+    </button>
+    <ng-container *ngFor="let pagina of [].constructor(totalPaginas); let i = index">
+      <button
+        class="px-3 py-1 rounded transition"
+        [ngClass]="paginaActual === pagina ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-100 text-blue-700 hover:bg-blue-200'"
+        (click)="cambiarPagina(pagina)">
+        {{ i + 1 }}
+      </button>
+    </ng-container>
+    <button
+      class="px-3 py-1 rounded bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+      [disabled]="paginaActual === totalPaginas"
+      (click)="cambiarPagina(paginaActual + 1)">
+      Siguiente
+    </button>
+  </div>
+</div>
