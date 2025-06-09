@@ -1,23 +1,32 @@
-<div class="min-h-screen flex flex-col bg-gray-100">
-  <header *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">
-    <nav>
-  <a href="/">Inicio</a>
-  <a href="/eventos">Eventos</a>
-  <a href="/nosotros">Nosotros</a>
-  <a href="/contacto">Contacto</a>
-</nav>
+<header *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">
+<h1 *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-gray-700-center">Bienvenidos a Eventos Conexión</h1>
+<nav>
+
   <header *ngIf="!isLoginPage">
     <app-header></app-header>
   </header>
 
-  <main class="flex-1 container mx-auto px-4 py-8">
-    <h1 *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">Bienvenidos a Eventos Conexión</h1>
+  <main class="flex-1 container mx-auto px-2 py-8">
+    <nav>
+  <ul>
+     <nav class="flex items-center space-x-6">
+    <li><a href="#"  class="text-gray-600 hover:text-blue-600">Inicio</a></li>
+    <li><a routerLink="/eventos" class="text-gray-600 hover:text-blue-600">Eventos</a></li>
+    <li><a routerLink="/nosotros"  class="text-gray-600 hover:text-blue-600">Nosotros</a></li>
+    <li><a routerLink="/contacto"  class="text-gray-600 hover:text-blue-600">Contacto</a></li>
+     </nav>
+  </ul>
+</nav>
+ <main class="flex-1 container mx-auto px-2 py-8">
+   <nav>
     <p>Explorá conferencias, conciertos y más eventos increíbles.</p>
     <router-outlet></router-outlet>
+   </nav>
   </main>
 
-  <footer *ngIf="!isLoginPage" class="text-3xl font-bold mb-6 text-center">
-    <p>Eventos Conexión. Todos los derechos reservados.</p>
+  <footer *ngIf="!isLoginPage" class="text-3xl font-bold mb-3 text-center">
+    <p>Eventos Conexión</p>
+    <p>Todos los derechos reservados.</p>
     <a href="/privacidad">Política de privacidad</a>
   </footer>
-</div>
+
